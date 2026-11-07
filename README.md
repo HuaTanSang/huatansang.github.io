@@ -1,5 +1,5 @@
 # Portfolio
-This is my portfolio, please visit [huatansang.github.io](huatansang.github.io) for more information.  
+This is my portfolio, please visit [huatansang.github.io](https://huatansang.github.io) for more information.  
 
 ## Repository structure
 
@@ -14,4 +14,4 @@ styles.css                   Responsive layout and color themes
 ```
 
 ## Acknowledgements
-This portfolio is inspired by [nqd.vn](nqd.vn)
+This portfolio is inspired by [nqd.vn](https://nqd.vn/)
