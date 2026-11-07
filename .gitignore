@@ -1,0 +1,34 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+.aws/
+*.pem
+*.key
+
+# Local agent configuration (shared instructions live in AGENTS.md)
+.codex/
+.agents/
+
+# Original CV and file-download metadata stay local
+docs/*.pdf
+*:Zone.Identifier
+
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+out/
+coverage/
+.next/
+.nuxt/
+.cache/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Logs and operating system files
+*.log
+.DS_Store
+Thumbs.db

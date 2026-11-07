@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="CV of Sang Hua-Tan, Data Engineer: experience, projects, publications, education, and skills.">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fcfcfc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#101010" media="(prefers-color-scheme: dark)">
+    <title>CV — Sang Hua-Tan</title>
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="page">
+      <header class="page-nav">
+        <a href="../">Sang Hua-Tan</a>
+        <nav aria-label="Main">
+          <ul class="links" role="list">
+            <li><a href="../#projects-title">Projects</a></li>
+            <li><a href="./" aria-current="page">CV</a></li>
+            <li><a href="../uses/">Uses</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="page-content" id="main" tabindex="-1">
+        <h1>CV</h1>
+        <dl class="cv-contact">
+          <dt>Role</dt>
+          <dd>Data Engineer</dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:huatansang2004@gmail.com">huatansang2004@gmail.com</a></dd>
+          <dt>Phone</dt>
+          <dd><a href="tel:+84915199829">+84 915 199 829</a></dd>
+          <dt>GitHub</dt>
+          <dd><a href="https://github.com/HuaTanSang">github.com/HuaTanSang</a></dd>
+        </dl>
+
+        <section aria-labelledby="summary-title">
+          <h2 id="summary-title">Summary</h2>
+          <p>
+            Data engineer and lifelong learner with experience in geospatial data,
+            batch analytics, and streaming pipelines. I work with Python, SQL,
+            Airflow, dbt, ClickHouse, and AWS to build and maintain data systems.
+          </p>
+        </section>
+
+        <section aria-labelledby="experience-title">
+          <h2 id="experience-title">Experience</h2>
+
+          <article class="cv-entry">
+            <div class="cv-entry-heading">
+              <h3>FPT Software</h3>
+              <p class="cv-date"><time datetime="2026-03">Mar 2026</time> – Present</p>
+            </div>
+            <p class="cv-role">Data Engineer</p>
+            <p class="cv-stack">Airflow, Amazon MWAA, S3, Lambda, DynamoDB, CodePipeline</p>
+            <ul class="cv-bullets">
+              <li>Upgraded Amazon MWAA from Apache Airflow 2.8.1 to 2.10.3, resolving Snowflake Python Connector dependency conflicts through package version pinning.</li>
+              <li>Contributed DAG logic and AWS Lambda fixes to an automated QA workflow on Amazon MWAA. Supported reusable test cases for S3 and DynamoDB outputs, helping reduce QA testing effort by 45%.</li>
+              <li>Helped refactor the testing tool into layer-specific test classes and shared classes for DynamoDB table information, S3 paths, and Airflow run and task metadata.</li>
+              <li>Updated error handling in buildspec.yml to propagate dependency build failures to AWS CodePipeline before they caused downstream DAG import errors.</li>
+              <li>Refactored DAG imports and configuration initialization to address errors during Airflow DAG parsing.</li>
+              <li>Simplified DAG data checks to validate the required table directly, removing unnecessary logic and aligning execution with business requirements.</li>
+              <li>Supported a senior engineer in planning an Amazon Redshift migration from DC2 to RA3 by researching options, presenting findings, and refining the migration plan for client delivery.</li>
+            </ul>
+          </article>
+
+          <article class="cv-entry">
+            <div class="cv-entry-heading">
+              <h3>National Digital Twin 15 — CT GROUP</h3>
+              <p class="cv-date"><time datetime="2025-10">Oct 2025</time> – <time datetime="2026-02">Feb 2026</time></p>
+            </div>
+            <p class="cv-role">Data Engineer Intern</p>
+            <p class="cv-stack">MinIO, dbt, ClickHouse, Airflow</p>
+            <ul class="cv-bullets">
+              <li>Built geospatial ingestion workflows with Airflow, collecting Overture Maps and OpenStreetMap datasets and storing raw data in MinIO.</li>
+              <li>Developed dbt transformations on ClickHouse and implemented H3 indexing to aggregate geospatial entity metadata within hexagonal grids.</li>
+              <li>Worked with business analysts to translate smart-city asset requirements into conceptual and logical data models for public infrastructure, including trees and street lamps.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section aria-labelledby="projects-title">
+          <h2 id="projects-title">Projects</h2>
+
+          <article class="cv-entry">
+            <h3><a href="https://github.com/HuaTanSang/nyc-taxi">NYC Taxi Analytics Platform</a></h3>
+            <p class="cv-stack">Airflow, dbt, ClickHouse, MinIO, Docker, Superset</p>
+            <ul class="cv-bullets">
+              <li>Built a monthly batch analytics pipeline processing approximately 25 million NYC Taxi trip records per month, using Airflow for orchestration, MinIO for raw storage, and dbt with ClickHouse for transformation.</li>
+              <li>Developed layered dbt models with trip facts, shared dimensions, and daily and hourly analytical marts, standardizing data across multiple taxi services.</li>
+              <li>Implemented idempotent monthly runs with parameterized execution, existing-object checks, and partition-based insert_overwrite models for safe retries and targeted reprocessing without duplicate data.</li>
+              <li>Added dbt tests for uniqueness, required fields, and fact-dimension relationships, plus monthly row-count reconciliation and quality summaries for missing values and out-of-month timestamps.</li>
+              <li>Configured ClickHouse query memory limits, thread counts, and disk spilling for sorting and aggregation to manage memory during batch transformations.</li>
+              <li>Automated setup and health checks with Docker Compose and Makefile commands, and created Superset dashboards for trip demand, revenue, and operational analysis.</li>
+              <li>Planned extensions: SCD Type 2 for reference dimensions, a CI/CD pipeline, and deployment of the containerized platform on Kubernetes.</li>
+            </ul>
+          </article>
+
+          <article class="cv-entry">
+            <h3><a href="https://github.com/HuaTanSang/VreID">VreID: Vehicle Re-Identification</a></h3>
+            <p class="cv-stack">Spark, Kafka, YOLOv12, OSNet</p>
+            <ul class="cv-bullets">
+              <li>Implemented a PySpark Structured Streaming pipeline to consume video frames from Kafka, apply vehicle detection and re-identification through Python UDFs, and publish processed frames to output Kafka topics.</li>
+              <li>Integrated YOLO and OSNet inference with camera-specific Kafka topics and configured checkpoints for streaming queries.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section aria-labelledby="publications-title">
+          <h2 id="publications-title">Publications</h2>
+          <article class="cv-entry">
+            <h3><a href="https://doi.org/10.1016/j.eswa.2026.134242">SGMA-Net: A Lightweight Mamba-Attention Network for Thin-Vessel Segmentation in Low-Contrast Fundus Images with Statistical Feature Refinement</a></h3>
+            <p class="cv-role">Thien B. Nguyen-Tat, Duy Pham Dinh Anh, Sang Hua Tan</p>
+            <p class="cv-stack">Expert Systems with Applications · Elsevier · Q1</p>
+            <ul class="cv-bullets">
+              <li>Designed the Statistical Aggregation Gate (SAG) for statistics-guided refinement of encoder skip features.</li>
+              <li>Designed and evaluated candidate modules during model development.</li>
+              <li>Implemented and trained baseline segmentation models for comparative evaluation and contributed to fundus-image preprocessing.</li>
+              <li>Conducted cumulative ablation studies and analyzed experimental results to assess successive module additions.</li>
+              <li>Co-authored the original manuscript and contributed to revisions and responses to peer reviewers.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section aria-labelledby="education-title">
+          <h2 id="education-title">Education</h2>
+          <div class="cv-entry">
+            <div class="cv-entry-heading">
+              <h3>University of Information Technology (UIT) — VNUHCM</h3>
+              <p class="cv-date"><time datetime="2022-09">Sep 2022</time> – <time datetime="2026-06">Jun 2026</time></p>
+            </div>
+            <p class="cv-role">Data Science</p>
+            <p>GPA: 8.89/10</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="skills-title">
+          <h2 id="skills-title">Skills</h2>
+          <ul class="cv-skills" role="list">
+            <li><span class="cv-label">Programming:</span> Python, SQL, C/C++</li>
+            <li><span class="cv-label">Processing and orchestration:</span> Spark, Kafka, dbt, Airflow, Amazon MWAA, AWS Lambda</li>
+            <li><span class="cv-label">Databases and storage:</span> ClickHouse, MinIO, Amazon S3, Amazon Redshift</li>
+            <li><span class="cv-label">Infrastructure:</span> Docker</li>
+            <li><span class="cv-label">Libraries and frameworks:</span> Pandas, NumPy, Matplotlib, Scikit-learn, PyTorch, OpenCV</li>
+            <li><span class="cv-label">Languages:</span> Vietnamese (native), English (IELTS 6.5)</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="achievements-title">
+          <h2 id="achievements-title">Achievements</h2>
+          <ul class="cv-bullets">
+            <li>Academic Encouragement Scholarship: Fall 2023–2024 and Spring 2024–2025.</li>
+            <li>ISE Spark Idea Competition: runner-up.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="certificates-title">
+          <h2 id="certificates-title">Certificates</h2>
+          <ul class="cv-bullets">
+            <li>DeepLearning.AI — Data Engineering</li>
+            <li>dbt Labs — dbt Fundamentals</li>
+          </ul>
+        </section>
+      </main>
+
+      <footer>
+        <p>© 2026 Sang Hua-Tan</p>
+      </footer>
+    </div>
+  </body>
+</html>
